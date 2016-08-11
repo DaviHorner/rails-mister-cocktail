@@ -1,0 +1,25 @@
+<div class="media">
+  <div class="media-body">
+    <div class="media-section">
+      <h2><%= @cocktail.name %></h2>
+      <%= image_tag "http://lorempixel.com/1280/720/nightlife/#{(1..10).to_a.sample}" %>
+    </div>
+    <div class="media-aside">
+      <div class="media-section">
+        <h2>
+          <%= link_to 'Add Doses!', new_cocktail_dose_path(@cocktail), class: 'btn' %>
+        </h2>
+        <ul class="list-group">
+          <% @cocktail.doses.each do |dose| %>
+              <div>
+                <p>
+                <%= dose.description %> --
+                <%= dose.ingredient.name %>
+                </p>
+              </div>
+          <% end %>
+        </ul>
+        <%= link_to "Delete", cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure?" } %>
+      </div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
-
+gem 'figaro'
 gem 'faker'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass', '~> 4.6.2'

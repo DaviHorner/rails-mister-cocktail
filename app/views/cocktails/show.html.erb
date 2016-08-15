@@ -2,7 +2,11 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <h1><%= @cocktail.name %></h1>
-      <%= image_tag "http://lorempixel.com/1280/720/nightlife/#{(1..10).to_a.sample}" %>
+
+      <% if @cocktail.photo? %>
+        <%= cl_image_tag @cocktail.photo.path, width: 800, height: 500, crop: :fill %>
+      <% end %>
+
         <% @cocktail.doses.each do |dose| %>
           <p>
           <%= dose.description %> --

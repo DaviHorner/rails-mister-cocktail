@@ -9,11 +9,12 @@
     <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-sm-4">
         <div class="card text-center">
-
-          <div class="card-header" style="background-image: url('http://lorempixel.com/200/300/nightlife')">
+          <% if cocktail.photo? %>
+            <%= cl_image_tag cocktail.photo.path, width: 800, height: 500, crop: :fill %>
+          <% else %>
+            <div class="card-header" style="background-image: url('http://www.seriouseats.com/images/2014/11/20141104-cocktail-party-old-fashioneds-holiday-vicky-wasik-3.jpg')">
             </div>
-
-
+          <% end %>
           <div class="card-body">
             <%= link_to cocktail.name, cocktail_path(cocktail) %>
           </div>
